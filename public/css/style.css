@@ -3647,6 +3647,30 @@ table th {
   position: relative;
   top: -2px;
 }
+.secretCircle {
+  overflow: hidden;
+  border-top: 4px double #e58c7c;
+  border-bottom: 4px double #e58c7c;
+  padding: 40px;
+  padding-left: 340px;
+}
+.secretCircle strong {
+  display: none;
+}
+.secretCircle a img {
+  width: 240px;
+  position: absolute;
+  left: 100px;
+}
+.secretCircle p {
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+.secretCircle ul {
+  line-height: 24px;
+  text-indent: 20px;
+  margin-bottom: 20px;
+}
 .cate-wraper {
   padding: 70px 40px 30px;
   font-size: 14px;
@@ -6509,6 +6533,13 @@ span.line {
   }
 }
 @media screen and (max-width: 991px) {
+  .secretCircle {
+    padding-right: 20px;
+    padding-left: 300px;
+  }
+  .secretCircle a img {
+    left: 40px;
+  }
   .article em.arrow-expend,
   .share-article {
     display: none !important;
@@ -6685,6 +6716,25 @@ span.line {
   box-shadow: none;
 }
 @media screen and (max-width: 640px) {
+  .secretCircle {
+    padding: 0;
+    border: none;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .secretCircle a img {
+    position: static;
+  }
+  .secretCircle strong {
+    display: block;
+    line-height: 40px;
+    font-size: 12px;
+  }
+  .secretCircle ul,
+  .secretCircle li,
+  .secretCircle p {
+    display: none;
+  }
   .article em.arrow-expend {
     display: none !important;
   }

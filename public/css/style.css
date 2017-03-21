@@ -3207,6 +3207,9 @@ div.recent-pic {
   word-break: break-all;
   word-wrap: break-word;
 }
+.post-content {
+  text-align: justify;
+}
 .post-content .line {
   margin-bottom: 0;
 }
@@ -3652,7 +3655,7 @@ table th {
   border-top: 4px double #e58c7c;
   border-bottom: 4px double #e58c7c;
   padding: 40px;
-  padding-left: 340px;
+  padding-left: 320px;
 }
 .secretCircle strong {
   display: none;
@@ -3660,7 +3663,7 @@ table th {
 .secretCircle a img {
   width: 240px;
   position: absolute;
-  left: 100px;
+  left: 80px;
 }
 .secretCircle p {
   line-height: 24px;
@@ -3670,6 +3673,29 @@ table th {
   line-height: 24px;
   text-indent: 20px;
   margin-bottom: 20px;
+}
+.secretCircle ul,
+.secretCircle li {
+  list-style: none !important;
+  margin-left: 0 !important;
+}
+.relative-box {
+  overflow: hidden;
+}
+a.relative-img-wrapper {
+  float: right;
+  width: 200px;
+  height: 120px;
+  margin-left: 10px;
+  margin-top: 7px;
+  overflow: hidden;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-decoration: none;
+  border: 4px solid #ccc;
+  border-bottom: 4px solid #ccc !important;
 }
 .cate-wraper {
   padding: 70px 40px 30px;
@@ -3781,6 +3807,7 @@ table th {
   margin: 10px 15px;
 }
 .about-wechart {
+  background: #fff;
   padding: 3px;
   border: 1px solid #ccc;
   margin: 10px 0;
@@ -4928,9 +4955,13 @@ body.body-bg-moon {
   list-style: circle;
   line-height: 28px;
   font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .entry-recent-posts li span {
   color: #999;
+  display: inline-block;
+  width: 100px;
 }
 .entry-recent-posts b.ds-thread-count,
 .entry-recent-post b.ds-thread-count {
@@ -6153,7 +6184,9 @@ span.line {
   .tools-wrapper,
   .post-title-wrapper img,
   .bread,
-  .share-article {
+  .share-article,
+  .chatroom,
+  .post-relative {
     display: none !important;
   }
   a {
@@ -6163,6 +6196,39 @@ span.line {
     text-shadow: none !important;
     box-shadow: none !important;
   }
+  .post-content img {
+    margin: 30px auto;
+  }
+  .post-content hr {
+    border-top: 1px dashed #ccc;
+  }
+}
+.shareMode .post-info,
+.shareMode .tools-wrapper,
+.shareMode .share-article,
+.shareMode .post-relative,
+.shareMode .single-page-footer,
+.shareMode .sidebar,
+.shareMode #nmlist,
+.shareMode .chatroom,
+.shareMode .copyright,
+.shareMode .bread,
+.shareMode .post-title-wrapper img,
+.shareMode .web-feed,
+.shareMode .ds-meta,
+.shareMode .website-info,
+.shareMode .arrow-expend {
+  display: none !important;
+}
+.shareMode .follow-wechat {
+  margin-top: 30px;
+}
+.shareMode .article,
+.shareMode .cate-wraper {
+  padding: 30px 20px;
+}
+.shareMode .post-content img {
+  margin: 30px auto;
 }
 .chatroom-feedback {
   position: absolute;
@@ -6540,9 +6606,11 @@ span.line {
   .secretCircle a img {
     left: 40px;
   }
-  .article em.arrow-expend,
-  .share-article {
+  .article em.arrow-expend {
     display: none !important;
+  }
+  .share-article {
+    margin: 20px 0;
   }
   .container {
     padding-left: 40px;
@@ -6640,6 +6708,13 @@ span.line {
   }
 }
 @media screen and (max-width: 800px) {
+  .secretCircle {
+    padding-right: 20px;
+    padding-left: 270px;
+  }
+  .secretCircle a img {
+    left: 30px;
+  }
   .sidebar-toggler,
   h1 img {
     display: none;
@@ -6716,6 +6791,12 @@ span.line {
   box-shadow: none;
 }
 @media screen and (max-width: 640px) {
+  .tools-wrapper {
+    bottom: 15px;
+  }
+  .response-overflow {
+    overflow: hidden;
+  }
   .secretCircle {
     padding: 0;
     border: none;
@@ -6824,14 +6905,14 @@ span.line {
     padding: 10px;
   }
   .cate-wraper h2 {
-    font-size: 26px;
+    font-size: 22px;
     margin-bottom: 10px;
     color: #333;
     line-height: 36px;
   }
   .article,
   .cate-wraper {
-    padding: 30px 20px;
+    padding: 30px 3%;
   }
   .post-prev,
   .post-next {
@@ -6853,7 +6934,7 @@ span.line {
   }
   .footer-nav a {
     padding: 6px;
-    font-size: 18px;
+    font-size: 16px;
   }
   .website-info {
     font-size: 12px;
@@ -6920,6 +7001,13 @@ span.line {
   .toggle-box ul {
     margin: 0;
     margin-left: 35px;
+  }
+  a.relative-img-wrapper {
+    width: 95%;
+    margin-bottom: 10px;
+    margin-left: 0;
+    display: block;
+    float: none;
   }
 }
 @media screen and (max-width: 481px) {

@@ -10,19 +10,19 @@
   <meta name="description" content="我们知道，支撑页面在 webview 上良好运转的前提是具备一个高效并且稳定的 webview 容器，而容器的高效稳定不仅仅由容器提供方来保障，也需要容器使用者遵守一些基本准则，否则就有可能出现页面 Crash 的情况，这些准则是什么？什么样的上层代码会引起容器异常退出？这是本文需要阐述的内容">
   <meta property="og:type" content="article">
   <meta property="og:title" content="H5 Crash 研究 | 小胡子哥的个人网站">
-  <meta property="og:url" content="//www.barretlee.com/blog/2016/05/30/h5-crash-research/">
+  <meta property="og:url" content="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/">
   <meta property="og:site_name" content="H5 Crash 研究">
   <meta property="og:description" content="我们知道，支撑页面在 webview 上良好运转的前提是具备一个高效并且稳定的 webview 容器，而容器的高效稳定不仅仅由容器提供方来保障，也需要容器使用者遵守一些基本准则，否则就有可能出现页面 Crash 的情况，这些准则是什么？什么样的上层代码会引起容器异常退出？这是本文需要阐述的内容">
   <meta name="generator" content="https://hexo.io" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="renderer" content="webkit">
-  <link href="//www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed">
-  <link rel="shoticon" href="//www.barretlee.com/favicon.ico" type="image/x-icon">
-  <link rel="alternate" type="application/rss+xml" href="//www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
-  <link rel="prev" href="//www.barretlee.com/blog/2016/06/02/thing-about-taobao-homepage/" title="聊一聊淘宝首页和它背后的一套" />
-  <link rel="next" href="//www.barretlee.com/blog/2016/05/20/kindle-book-maker/" title="Kindle 电子书生成工具" />
-  <link rel="start" href="//www.barretlee.com/entry/" title="Blog Entry" />
-  <link rel="stylesheet" href="/public/css/style.css?v=20160728">
+  <link href="http://www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="http://www.barretlee.com/favicon.ico" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="http://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="http://www.barretlee.com/blog/2016/06/02/thing-about-taobao-homepage/" title="聊一聊淘宝首页和它背后的一套" />
+  <link rel="next" href="http://www.barretlee.com/blog/2016/05/20/kindle-book-maker/" title="Kindle 电子书生成工具" />
+  <link rel="start" href="http://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="/public/css/style.css?v=20170205">
 </head>
 <span class="aria-readonly" tabindex="0" aria-hidden="true">小胡子哥的博客良好支持读屏软件阅读，请放心使用。</span>
 
@@ -41,7 +41,7 @@
 
       </div>
       <div class="post-title-wrapper">
-        <h1 class="post-title" itemprop="name">H5 Crash 研究<img src="https://game.weixin.qq.com/cgi-bin/comm/qrcode?s=10&m=1&d=http://www.barretlee.com/blog/2016/05/30/h5-crash-research/" alt="扫码分享" onerror="this.style.display='none';"></h1>
+        <h1 class="post-title" itemprop="name">H5 Crash 研究<img src="https://game.weixin.qq.com/cgi-bin/comm/qrcode?s=10&m=1&d=http:http://www.barretlee.com/blog/2016/05/30/h5-crash-research/" alt="扫码分享" onerror="this.style.display='none';"></h1>
         <a href="/about/"><img src="/blogimgs/avatar150.png" alt="小胡子哥" /></a>
       </div>
       <div class="post-info">
@@ -66,7 +66,7 @@
       </div>
       <div class="post-content" itemprop="articleBody">
         <div class="shit-spider" title="防爬虫不注明出处" tabindex="0" aria-hidden="true">
-          <p>原文地址：<a href="//www.barretlee.com/blog/2016/05/30/h5-crash-research/">//www.barretlee.com/blog/2016/05/30/h5-crash-research/</a>，<a href="//www.barretlee.com/blog/2016/05/30/h5-crash-research/#comments">参与评论</a></p>
+          <p>原文地址：<a href="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/">http://www.barretlee.com/blog/2016/05/30/h5-crash-research/</a>，<a href="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/#comments">参与评论</a></p>
           <img src="//www.barretlee.com/blogimgs/avatar150.png">
         </div>
         <p>我们知道，支撑页面在 webview 上良好运转的前提是具备一个高效并且稳定的 webview 容器，而容器的高效稳定不仅仅由容器提供方来保障，也需要容器使用者遵守一些基本准则，否则就有可能出现页面 Crash 的情况，这些准则是什么？什么样的上层代码会引起容器异常退出？这是本文需要阐述的内容。</p>
@@ -116,14 +116,14 @@
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>本文主要是对 H5 Crash 做了一个预研，测试可能存在诸多误差，测试方法也需要改进，不过沿着这些的思路考究会比较容易找到结论。</p>
 <p>后续会给出比较有意义的边界数据以及探测工具。</p>
 
-        <!--<p class="article-info">文/<a href="/about/"><img src="/avatar150.png">李靖</a>　微信公众号：barretlee_com</p><p class="this-page-link" aria-hidden="true">本文链接：<a href="//www.barretlee.com/blog/2016/05/30/h5-crash-research/">//www.barretlee.com/blog/2016/05/30/h5-crash-research/</a></p>
-        <p><a class="to-comments" href="//www.barretlee.com/blog/2016/05/30/h5-crash-research/#comments" aria-hidden="true">☞ 参与评论</a></p> -->
+        <!--<p class="article-info">文/<a href="/about/"><img src="/avatar150.png">李靖</a>　微信公众号：barretlee_com</p><p class="this-page-link" aria-hidden="true">本文链接：<a href="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/">http://www.barretlee.com/blog/2016/05/30/h5-crash-research/</a></p>
+        <p><a class="to-comments" href="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/#comments" aria-hidden="true">☞ 参与评论</a></p> -->
       </div>
     </div>
     
     <div class="share-article clearfix">
       
-      <div class="ds-share" data-thread-key="h5-crash-research" data-title="H5 Crash 研究" data-images="" data-content="我们知道，支撑页面在 webview 上良好运转的前提是具备一个高效并且稳定的 webview 容器，而容器的高效稳定不仅仅由容器提供方来保障，也需要容器使用者遵守一些基本准则，否则就有可能出现页面 Crash 的情况，这些准则是什么？什么样的上层代码会引起容器异常退出？这是本文需要阐述的内容。" data-url="//www.barretlee.com/blog/2016/05/30/h5-crash-research/">
+      <div class="ds-share" data-thread-key="h5-crash-research" data-title="H5 Crash 研究" data-images="" data-content="我们知道，支撑页面在 webview 上良好运转的前提是具备一个高效并且稳定的 webview 容器，而容器的高效稳定不仅仅由容器提供方来保障，也需要容器使用者遵守一些基本准则，否则就有可能出现页面 Crash 的情况，这些准则是什么？什么样的上层代码会引起容器异常退出？这是本文需要阐述的内容。" data-url="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/">
         <div class="ds-share-inline" tabindex="0" aria-hidden="true">
   <ul  class="ds-share-icons-16">
     <li><a class="ds-more" href="javascript:void(0);" data-service="weibo">分享到：</a></li>
@@ -136,20 +136,21 @@
 </div>
       </div>
     </div>
-    <div class="secretCircle">
-      <a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608"><img src="/circle.jpg" alt="前端进阶小圈子"></a>
-      <p>嗯，我新建了一个「前端进阶」的小圈子。</p>
-      <p>最近找我提问的人数飙涨的厉害，精力有限没能都回复。建了一个圈子，这个圈子里可以提问，关于前端成长和进阶的话题，我会抽空回答，也会邀请一些前端朋友进来交流，问答会沉淀在圈子里。<b>付费圈子，时限一年。</b></p>
-      <p>在这里，你可以：</p>
-      <ul>
-        <li>✅ 提出你在前端学习中的疑问，</li>
-        <li>✅ 谈谈你学习的方法和经验，</li>
-        <li>✅ 了解前端，深入前端</li>
-      </ul>
-      <p>在这里，更加注重方法论的交流。</p>
-      <strong>付费圈子，时限一年</strong>
-    </div>
-    <!-- <div class="follow-wechat"><img src="/follow.jpg"></div> -->
+    <!-- <div class="secretCircle">
+  <a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608" target="_blank"><img src="/circle.jpg" alt="前端进阶小圈子"></a>
+  <p>嗯，我新建了一个「前端进阶」的小圈子。</p>
+  <p>最近找我提问的人数飙涨的厉害，精力有限没能都回复。建了一个圈子，这个圈子里可以提问，关于前端成长和进阶的话题，我会抽空回答，也会邀请一些前端朋友进来交流，问答会沉淀在圈子里。<b>付费圈子，时限一年。</b></p>
+  <p><a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608" target="_blank">在这里</a>，你可以：</p>
+  <ul>
+    <li>✅ 提出你在前端学习中的疑问，</li>
+    <li>✅ 谈谈你学习的方法和经验，</li>
+    <li>✅ 了解前端，深入前端</li>
+  </ul>
+  <p>在这里，更加注重方法论的交流。</p>
+  <strong>付费圈子，时限一年</strong>
+</div>
+ -->
+    <div class="follow-wechat"><img src="/follow.jpg"></div>
 
 <div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
 	<!-- <a href="/about/#support" class="supportme">赏</a> -->
@@ -173,7 +174,7 @@
     <em class="arrow-expend icon" tabindex="0" aria-hidden="true">&#xe618;
       <ul>
         <li><a href="/entry/">博客</a></li>
-        <li><a href="/message/">留言</a></li>
+        <li><a href="/message/">问答</a></li>
         <li><a href="/about/">关于</a></li>
         <li><a href="/demo/">实验室</a></li>
         <li><a href="/comments/">最近评论</a></li>
@@ -264,6 +265,7 @@
         <a href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
         <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
           <p class="seperator"><a href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a href="http://md.barretlee.com" target="_blank">WX格式</a></p>
           <p><a href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
         </div>
     </span>
@@ -304,7 +306,7 @@
 
 
 
-<div class="ds-thread" tabindex="0" aria-hidden="true" data-thread-key="h5-crash-research" data-title="H5 Crash 研究" data-url="//www.barretlee.com/blog/2016/05/30/h5-crash-research/" data-name="barretlee">
+<div class="ds-thread" tabindex="0" aria-hidden="true" data-thread-key="h5-crash-research" data-title="H5 Crash 研究" data-url="http://www.barretlee.com/blog/2016/05/30/h5-crash-research/" data-name="barretlee">
 	<div class="ds-loading">
 		<img src="/blogimgs/loading.gif" alt="loading..."/>
 		<p>这网速真是弱爆了...客官稍等,评论还在加载~</p>
@@ -352,9 +354,10 @@
 	</div>
 </div>
 			<div class="website-info" aria-hidden="true">
-	<span>Copyright &copy;2013-2016 <small><a href="http://www.miitbeian.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	<span>&copy;2013-2017 <small><a href="http://www.miitbeian.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
 	本站由 <a href="/">小胡子哥</a> 纯手工打造 | <a href="/about#contact">联系方式</a> | 总热度：<em id="busuanzi_value_site_pv"></em>
 </div>
+
 		</div>
 	</div>
 </div>
@@ -376,6 +379,6 @@
   };
 </script>
 <script src="/public/js/aplayer.js"></script>
-<script src="/public/js/main.js?v=20160728"></script>
+<script src="/public/js/main.js?v=20170205"></script>
 </script>
 </html>

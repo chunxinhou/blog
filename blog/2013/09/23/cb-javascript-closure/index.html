@@ -10,19 +10,19 @@
   <meta name="description" content="本文为归档内容,原始地址在 博客园.　　对于JavaScript初学者来说，闭包是一个很神秘的东西，不管看多少遍，依旧搞不清楚闭包是什么，更不明白其内部是什么样的处理机制（更可恶的是每次面试都会被问到）。　　说的含糊一点，闭包就是代码块和该代码块上下文（context）相互作用的产物。看一个例子：f">
   <meta property="og:type" content="article">
   <meta property="og:title" content="对闭包机制的深入理解 | 小胡子哥的个人网站">
-  <meta property="og:url" content="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">
+  <meta property="og:url" content="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">
   <meta property="og:site_name" content="对闭包机制的深入理解">
   <meta property="og:description" content="本文为归档内容,原始地址在 博客园.　　对于JavaScript初学者来说，闭包是一个很神秘的东西，不管看多少遍，依旧搞不清楚闭包是什么，更不明白其内部是什么样的处理机制（更可恶的是每次面试都会被问到）。　　说的含糊一点，闭包就是代码块和该代码块上下文（context）相互作用的产物。看一个例子：f">
   <meta name="generator" content="https://hexo.io" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="renderer" content="webkit">
-  <link href="//www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed">
-  <link rel="shoticon" href="//www.barretlee.com/favicon.ico" type="image/x-icon">
-  <link rel="alternate" type="application/rss+xml" href="//www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
-  <link rel="prev" href="//www.barretlee.com/blog/2013/09/26/cb-mianshi-alibaba/" title="阿里面试的一点感受" />
-  <link rel="next" href="//www.barretlee.com/blog/2013/09/22/cb-javascript-attention/" title="JavaScript中需要注意的几个问题" />
-  <link rel="start" href="//www.barretlee.com/entry/" title="Blog Entry" />
-  <link rel="stylesheet" href="/public/css/style.css?v=20160728">
+  <link href="http://www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="http://www.barretlee.com/favicon.ico" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="http://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="http://www.barretlee.com/blog/2013/09/26/cb-mianshi-alibaba/" title="阿里面试的一点感受" />
+  <link rel="next" href="http://www.barretlee.com/blog/2013/09/22/cb-javascript-attention/" title="JavaScript中需要注意的几个问题" />
+  <link rel="start" href="http://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="/public/css/style.css?v=20170205">
 </head>
 <span class="aria-readonly" tabindex="0" aria-hidden="true">小胡子哥的博客良好支持读屏软件阅读，请放心使用。</span>
 
@@ -41,7 +41,7 @@
 
       </div>
       <div class="post-title-wrapper">
-        <h1 class="post-title" itemprop="name">对闭包机制的深入理解<img src="https://game.weixin.qq.com/cgi-bin/comm/qrcode?s=10&m=1&d=http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/" alt="扫码分享" onerror="this.style.display='none';"></h1>
+        <h1 class="post-title" itemprop="name">对闭包机制的深入理解<img src="https://game.weixin.qq.com/cgi-bin/comm/qrcode?s=10&m=1&d=http:http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/" alt="扫码分享" onerror="this.style.display='none';"></h1>
         <a href="/about/"><img src="/blogimgs/avatar150.png" alt="小胡子哥" /></a>
       </div>
       <div class="post-info">
@@ -66,7 +66,7 @@
       </div>
       <div class="post-content" itemprop="articleBody">
         <div class="shit-spider" title="防爬虫不注明出处" tabindex="0" aria-hidden="true">
-          <p>原文地址：<a href="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/</a>，<a href="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/#comments">参与评论</a></p>
+          <p>原文地址：<a href="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/</a>，<a href="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/#comments">参与评论</a></p>
           <img src="//www.barretlee.com/blogimgs/avatar150.png">
         </div>
         <div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/09/23/javascript-closure.html" target="_blank">博客园</a>.</div>
@@ -104,19 +104,19 @@
 
 
 <p><span>&nbsp;</span></p>
-        <!--<p class="article-info">文/<a href="/about/"><img src="/avatar150.png">李靖</a>　微信公众号：barretlee_com</p><p class="this-page-link" aria-hidden="true">本文链接：<a href="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/</a></p>
-        <p><a class="to-comments" href="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/#comments" aria-hidden="true">☞ 参与评论</a></p> -->
+        <!--<p class="article-info">文/<a href="/about/"><img src="/avatar150.png">李靖</a>　微信公众号：barretlee_com</p><p class="this-page-link" aria-hidden="true">本文链接：<a href="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/</a></p>
+        <p><a class="to-comments" href="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/#comments" aria-hidden="true">☞ 参与评论</a></p> -->
       </div>
     </div>
     
 <div class="old-article-warning">
-	本文在 <b>1171</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，
+	本文在 <b>1276</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，
 	请在下方留言，或者联系 <a href="/about">小胡子哥</a>。
 </div>
 
     <div class="share-article clearfix">
       
-      <div class="ds-share" data-thread-key="cb-javascript-closure" data-title="对闭包机制的深入理解" data-images="" data-content="本文为归档内容,原始地址在 博客园.　　对于JavaScript初学者来说，闭包是一个很神秘的东西，不管看多少遍，依旧搞不清楚闭包是什么，更不明白其内部是什么样的处理机制（更可恶的是每次面试都会被问到）。　　说的含糊一点..." data-url="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">
+      <div class="ds-share" data-thread-key="cb-javascript-closure" data-title="对闭包机制的深入理解" data-images="" data-content="本文为归档内容,原始地址在 博客园.　　对于JavaScript初学者来说，闭包是一个很神秘的东西，不管看多少遍，依旧搞不清楚闭包是什么，更不明白其内部是什么样的处理机制（更可恶的是每次面试都会被问到）。　　说的含糊一点..." data-url="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/">
         <div class="ds-share-inline" tabindex="0" aria-hidden="true">
   <ul  class="ds-share-icons-16">
     <li><a class="ds-more" href="javascript:void(0);" data-service="weibo">分享到：</a></li>
@@ -129,20 +129,21 @@
 </div>
       </div>
     </div>
-    <div class="secretCircle">
-      <a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608"><img src="/circle.jpg" alt="前端进阶小圈子"></a>
-      <p>嗯，我新建了一个「前端进阶」的小圈子。</p>
-      <p>最近找我提问的人数飙涨的厉害，精力有限没能都回复。建了一个圈子，这个圈子里可以提问，关于前端成长和进阶的话题，我会抽空回答，也会邀请一些前端朋友进来交流，问答会沉淀在圈子里。<b>付费圈子，时限一年。</b></p>
-      <p>在这里，你可以：</p>
-      <ul>
-        <li>✅ 提出你在前端学习中的疑问，</li>
-        <li>✅ 谈谈你学习的方法和经验，</li>
-        <li>✅ 了解前端，深入前端</li>
-      </ul>
-      <p>在这里，更加注重方法论的交流。</p>
-      <strong>付费圈子，时限一年</strong>
-    </div>
-    <!-- <div class="follow-wechat"><img src="/follow.jpg"></div> -->
+    <!-- <div class="secretCircle">
+  <a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608" target="_blank"><img src="/circle.jpg" alt="前端进阶小圈子"></a>
+  <p>嗯，我新建了一个「前端进阶」的小圈子。</p>
+  <p>最近找我提问的人数飙涨的厉害，精力有限没能都回复。建了一个圈子，这个圈子里可以提问，关于前端成长和进阶的话题，我会抽空回答，也会邀请一些前端朋友进来交流，问答会沉淀在圈子里。<b>付费圈子，时限一年。</b></p>
+  <p><a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608" target="_blank">在这里</a>，你可以：</p>
+  <ul>
+    <li>✅ 提出你在前端学习中的疑问，</li>
+    <li>✅ 谈谈你学习的方法和经验，</li>
+    <li>✅ 了解前端，深入前端</li>
+  </ul>
+  <p>在这里，更加注重方法论的交流。</p>
+  <strong>付费圈子，时限一年</strong>
+</div>
+ -->
+    <div class="follow-wechat"><img src="/follow.jpg"></div>
 
 <div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
 	<!-- <a href="/about/#support" class="supportme">赏</a> -->
@@ -166,7 +167,7 @@
     <em class="arrow-expend icon" tabindex="0" aria-hidden="true">&#xe618;
       <ul>
         <li><a href="/entry/">博客</a></li>
-        <li><a href="/message/">留言</a></li>
+        <li><a href="/message/">问答</a></li>
         <li><a href="/about/">关于</a></li>
         <li><a href="/demo/">实验室</a></li>
         <li><a href="/comments/">最近评论</a></li>
@@ -257,6 +258,7 @@
         <a href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
         <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
           <p class="seperator"><a href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a href="http://md.barretlee.com" target="_blank">WX格式</a></p>
           <p><a href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
         </div>
     </span>
@@ -297,7 +299,7 @@
 
 
 
-<div class="ds-thread" tabindex="0" aria-hidden="true" data-thread-key="cb-javascript-closure" data-title="对闭包机制的深入理解" data-url="//www.barretlee.com/blog/2013/09/23/cb-javascript-closure/" data-name="barretlee">
+<div class="ds-thread" tabindex="0" aria-hidden="true" data-thread-key="cb-javascript-closure" data-title="对闭包机制的深入理解" data-url="http://www.barretlee.com/blog/2013/09/23/cb-javascript-closure/" data-name="barretlee">
 	<div class="ds-loading">
 		<img src="/blogimgs/loading.gif" alt="loading..."/>
 		<p>这网速真是弱爆了...客官稍等,评论还在加载~</p>
@@ -319,28 +321,40 @@
 				<span><font aria-hidden="true">2016-09-28 »</font> </span>
 				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
 				<span class="aria-readonly">发表时间为2016年09月28日</span>
-				<div><span class="aria-readonly">文章概要 </span>“0.1 + 0.2 = ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。</div>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper" style="background-image:url(http://ww4.sinaimg.cn/large/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg);"></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 = ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。
+        </div>
 			</li>
 			
 			<li>
 				<span><font aria-hidden="true">2016-08-23 »</font> </span>
 				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
 				<span class="aria-readonly">发表时间为2016年08月23日</span>
-				<div><span class="aria-readonly">文章概要 </span>在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require('vm');const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script('a + b');const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。</div>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper" style="background-image:url(http://ww1.sinaimg.cn/large/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg);"></a>
+          <span class="aria-readonly">文章概要 </span>在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require('vm');const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script('a + b');const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
 			</li>
 			
 			<li>
 				<span><font aria-hidden="true">2016-07-13 »</font> </span>
 				<a href="/blog/2016/07/13/why-i-learning-es6/">我需要学习 ECMAScript 6 么？</a>
 				<span class="aria-readonly">发表时间为2016年07月13日</span>
-				<div><span class="aria-readonly">文章概要 </span>前几天翻译了一篇 ECMAScript 6 的入门文章，看到几则评论说 JavaScript 越来越像 Java 了，我暗暗地笑了笑。也有同学很疑惑是否有必要学习 ES6，使用 TypeScript 的同学也有类似的疑惑。</div>
+				<div class="relative-box">
+          <a href="/blog/2016/07/13/why-i-learning-es6/" class="relative-img-wrapper" style="background-image:url(//ww1.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg);"></a>
+          <span class="aria-readonly">文章概要 </span>前几天翻译了一篇 ECMAScript 6 的入门文章，看到几则评论说 JavaScript 越来越像 Java 了，我暗暗地笑了笑。也有同学很疑惑是否有必要学习 ES6，使用 TypeScript 的同学也有类似的疑惑。
+        </div>
 			</li>
 			
 			<li>
 				<span><font aria-hidden="true">2016-07-09 »</font> </span>
 				<a href="/blog/2016/07/09/a-kickstarter-guide-to-writing-es6/">ECMAScript 6 扫盲</a>
 				<span class="aria-readonly">发表时间为2016年07月09日</span>
-				<div><span class="aria-readonly">文章概要 </span>ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。本文译自 Github 上的一篇文章，目的是对还不太熟悉 ES6 语法的同学做一个简单的扫盲。</div>
+				<div class="relative-box">
+          <a href="/blog/2016/07/09/a-kickstarter-guide-to-writing-es6/" class="relative-img-wrapper" style="background-image:url(//ww1.sinaimg.cn/large/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg);"></a>
+          <span class="aria-readonly">文章概要 </span>ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。本文译自 Github 上的一篇文章，目的是对还不太熟悉 ES6 语法的同学做一个简单的扫盲。
+        </div>
 			</li>
 			
 		</ul>
@@ -373,9 +387,10 @@
 	</div>
 </div>
 			<div class="website-info" aria-hidden="true">
-	<span>Copyright &copy;2013-2016 <small><a href="http://www.miitbeian.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	<span>&copy;2013-2017 <small><a href="http://www.miitbeian.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
 	本站由 <a href="/">小胡子哥</a> 纯手工打造 | <a href="/about#contact">联系方式</a> | 总热度：<em id="busuanzi_value_site_pv"></em>
 </div>
+
 		</div>
 	</div>
 </div>
@@ -397,6 +412,6 @@
   };
 </script>
 <script src="/public/js/aplayer.js"></script>
-<script src="/public/js/main.js?v=20160728"></script>
+<script src="/public/js/main.js?v=20170205"></script>
 </script>
 </html>

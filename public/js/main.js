@@ -2,6 +2,27 @@ var weiboName = "@Barret李靖";
 var duoshuoName = "";
 var disqusName = "";
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
+
+var params = {};
+~function() {
+  var search = location.href.split('?')[1];
+  search = search && search.split('&') || [];
+  for(var i = 0; i < search.length; i++){
+    var m = search[i].split('=');
+    if (m && m[0]) {
+      params[m[0]] = m[1];
+    }
+  }
+}();
+
+if (params['share']) {
+  $('html').addClass('shareMode');
+  $('<p style="color:#555;text-align:right; font-size:14px;" id="authorAppend">文 / 小胡子哥</p>').prependTo('.post-content');
+} else {
+  $('html').removeClass('shareMode');
+  $('#authorAppend').remove();
+}
+
 $(function() {
   var text = '';
   var m = navigator.appVersion.match(/MSIE (\d+)/i);
@@ -226,7 +247,9 @@ var operation = {
     $.getScript("/public/js/wechat.js", function() {
       $ctt.prepend(wechatStr);
       wechat('network', function(res) {
-        $(".wechat-net").text(res.err_msg.split(':')[1]);
+        var network = res.err_msg.split(':')[1];
+        network = network == 'wifi' ? 'wifi' : network == 'wwan' ? '3g' : '4g';
+        $(".wechat-net").text(network);
       });
       $(".wechat-email").on("click", function() {
         var data = {
@@ -236,7 +259,8 @@ var operation = {
             return $imgs.length > 2 ? $imgs.eq(1).attr("src") : '';
           },
           link: window.location.href,
-          desc: $(".ds-share").attr("data-content").replace(/<[^>]*?>/gmi, ""),
+          // desc: $(".ds-share").attr("data-content").replace(/<[^>]*?>/gmi, ""),
+          desc: '文章链接地址：',
           title: $(".ds-share").attr("data-title")
         };
         wechat('email', data, function() {});
@@ -465,7 +489,7 @@ var operation = {
           var img = dataURItoBlob(shareCanvas.toDataURL('image/png'));
           //var url = window.URL.createObjectURL();
 
-          var base = "//tmpfile.coding.io/";
+          var base = "//123.56.230.53:3300/";
           var fd = new FormData();
           fd.append("img", img);
           $this.text("分享中..");
@@ -529,7 +553,7 @@ var operation = {
     });
     if ($(".entry-page-search").size()) {
       var $input = $(".entry-page-search input");
-      $input.on("keyup change keydown", function(evt) {
+      $input.on("change", function(evt) {
         var val = $.trim($input.val());
         if (val && (evt.which == 13 || evt.type == 'change')) {
           window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
@@ -1020,6 +1044,19 @@ $(window).on("load", function() {
       s.parentNode.insertBefore(hm, s);
     })();
 
+    // 百度收录，自动推送
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
@@ -1455,6 +1492,10 @@ typeof history.pushState === 'function' && (function() {
   //         url: href
   //     }, '', href);
   // }
+  var href = window.location.href;
+  history.replaceState({
+      url: href
+  }, '', href);
   var pageCache = window.pageCache = window.pageCache || {};
 
   function pjax(url, tag) {
@@ -1497,6 +1538,7 @@ typeof history.pushState === 'function' && (function() {
     var body = data.body;
     $.getScript('/public/js/main.js');
     $('script[src*="duoshuo"],script[src*="baidu"],script[src*="google"],link[href*="duoshuo"]').remove();
+    document.title = title || '小胡子哥的个人网站';
     $('body').html(body);
     if (window.DUOSHUO) {
       DUOSHUO.Widget();
@@ -1531,8 +1573,8 @@ typeof history.pushState === 'function' && (function() {
     //     window.rTimer && clearInterval(window.rTimer);
     // }
   }
-  window.onpopstate = function() {
-    var currentState = history.state;
+  window.onpopstate = function(e) {
+    var currentState = e.state;
     if (currentState) {
       if (window.console && window.console.info) {
         console.info('navigator back: ' + currentState.url);
@@ -1544,7 +1586,8 @@ typeof history.pushState === 'function' && (function() {
     $('a').on('click', function(evt) {
       var href = $(this).prop('href');
       var host = window.location.host;
-      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey) {
+      var hasJump = $(this).prop('target') === '_blank';
+      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href) && !hasJump) {
         evt.preventDefault();
         if (window.console && window.console.info) {
           console.info('navigator: ' + href);
